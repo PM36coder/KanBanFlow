@@ -9,6 +9,6 @@ router.post('/' , userMiddleware, createTask);
 router.get('/', userMiddleware , getUserTasks);
 router.put('/:id', userMiddleware, updateUserTask);
 router.delete('/:id' , userMiddleware, deleteTask);
-router.delete('/delete-all' , userMiddleware, deleteAllTask)
+router.post('/delete-all' , userMiddleware, deleteAllTask)
 
 export default router
