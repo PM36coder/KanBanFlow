@@ -32,6 +32,20 @@ export const registerUser = createAsyncThunk(
     }
 )
 
+//! load user on refresh
+export const loadUser = createAsyncThunk(
+    'auth/loadUser',
+    async(_,thunkAPI)=>{
+        try {
+            const res = await API.get("/auth/me"); // backend route
+      return res.data;
+        } catch (error) {
+              return thunkAPI.rejectWithValue(
+        error?.response?.data?.message || " Failed to load user"
+      );
+        }
+    }
+)
 
 //logout thunk api
 
@@ -53,7 +67,7 @@ export const logoutUser = createAsyncThunk(
 
 const initialState = {
     user: null,
-  loading: false,
+  loading: true,
   error: null,
 }
 
@@ -99,6 +113,18 @@ const authSlice = createSlice({
        .addCase(logoutUser.fulfilled, (state) => {
         state.user = null;
       })
+      //load user
+      .addCase(loadUser.pending, (state) => {
+  state.loading = true;
+})
+.addCase(loadUser.fulfilled, (state, action) => {
+  state.loading = false;
+  state.user = action.payload.user; // backend se { user } aa raha
+})
+.addCase(loadUser.rejected, (state) => {
+  state.loading = false;
+  state.user = null;
+})
     }
 
 })

@@ -1,17 +1,10 @@
-import { useSelector } from "react-redux";
+
 
 export const Contact = () => {
 
-   const {user} = useSelector((state)=> state.auth)
 
-   if(!user){
-    return (
-      <div className="flex items-center justify-center h-screen ">
-        <h1 className="text-emerald-500 text-center  text-2xl ">Please Login First</h1>
-      </div>
-      
-    )
-   }
+
+  
   return (
     <section className="min-h-screen bg-gray-100 px-6 py-16">
       <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow">

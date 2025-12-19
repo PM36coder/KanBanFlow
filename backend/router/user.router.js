@@ -1,5 +1,5 @@
 import express from 'express';
-import { userLogin ,userLogout,userRegister } from '../controller/user.controller.js';
+import { userLogin ,userLogout,userRegister,userGetMe } from '../controller/user.controller.js';
 import { userMiddleware } from '../middleware/authMiddleware.js';
 
 const router = express.Router()
@@ -7,8 +7,7 @@ const router = express.Router()
 router.post('/register', userRegister)
 router.post('/login', userLogin)
 router.post('/logout',userLogout)
-router.get('/me', userMiddleware, (req,res)=>{
-    res.status(200).json({message:"You are authorized"})
-})
+router.get('/me', userMiddleware,userGetMe )
+
 
 export default router

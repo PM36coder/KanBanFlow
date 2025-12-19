@@ -33,7 +33,7 @@ export const Login = () => {
      const result  = await dispatch(loginUser(formData))
 
      if(loginUser.fulfilled.match(result)){
-      navigate("/"); // login successful
+      navigate("/dashboard"); // login successful
       console.log("LOGIN RESULT:", result.payload);
      }
   }
