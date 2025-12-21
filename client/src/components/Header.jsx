@@ -52,9 +52,15 @@ export const Header = () => {
           <Link to="/services" className="hover:text-blue-400">
             Services
           </Link>
-          {user ? <button  className="bg-blue-500 px-4 py-2 rounded-2xl transition-all  hover:bg-blue-600" onClick={handleLogout}>
+          {user ? (
+            <>
+            <Link to="/dashboard" className="hover:text-blue-400">
+            Dashboard
+          </Link>
+
+            <button  className="bg-blue-500 px-4 py-2 rounded-2xl transition-all  hover:bg-blue-600" onClick={handleLogout}>
             Logout
-          </button>  : <Link
+          </button> </>) : <Link
             to="/login"
             className="bg-blue-500 px-4 py-2 rounded-2xl transition-all  hover:bg-blue-600"
           >
@@ -95,7 +101,12 @@ export const Header = () => {
             Projects
           </Link>
 
-        {user ? <button className="block bg-blue-500 px-4 py-2 rounded-2xl transition-all  hover:bg-blue-600 w-full" onClick={handleLogout}>Logout</button> : <Link
+        {user ? (
+          <>
+          <Link onClick={() => setOpen(false)} to="/dashboard" className="block">
+            Dashboard
+          </Link>
+          <button className="block bg-blue-500 px-4 py-2 rounded-2xl transition-all  hover:bg-blue-600 w-full" onClick={handleLogout}>Logout</button></>) : <Link
             onClick={() => setOpen(false)}
             to="/login"
             className="block bg-blue-500 px-4 py-2 rounded  text-center"

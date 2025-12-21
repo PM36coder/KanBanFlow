@@ -1,14 +1,14 @@
-import { TaskCard } from './TaskCard';
+import { TaskCard } from "./TaskCard";
 import { FaCircle } from "react-icons/fa";
+import { Droppable } from "@hello-pangea/dnd";
 
 export const KanbanColumn = ({ title, status, tasks }) => {
   const filteredTasks = tasks.filter((task) => task.status === status);
 
-  // Status ke hisab se colors define kiye
   const statusColors = {
-    todo: "bg-yellow-500",
-    "in-progress": "bg-blue-500",
-    done: "bg-green-500",
+    todo: "text-yellow-500",
+    "in-progress": "text-blue-500",
+    done: "text-green-500",
   };
 
   const statusBg = {
@@ -18,34 +18,42 @@ export const KanbanColumn = ({ title, status, tasks }) => {
   };
 
   return (
-    <div className={`flex flex-col h-full rounded-2xl ${statusBg[status] || "bg-gray-50"} border border-gray-200`}>
-      
-      {/* Column Header */}
-      <div className="p-4 flex items-center justify-between border-b border-gray-200/50">
+    <div className={` flex flex-col rounded-2xl border
+    min-w-[280px] md:min-w-0
+    ${statusBg[status]}`}>
+      <div className="p-4 flex justify-between border-b">
         <div className="flex items-center gap-2">
-          <FaCircle className={`text-[10px] ${statusColors[status] || "text-gray-400"}`} />
-          <h2 className="font-bold text-gray-700 uppercase tracking-wider text-sm">
-            {title}
-          </h2>
+          <FaCircle className={`text-[10px] ${statusColors[status]}`} />
+          <h2 className="font-bold text-sm uppercase">{title}</h2>
         </div>
-        <span className="text-xs font-bold text-gray-500 bg-white px-2 py-1 rounded-full shadow-sm">
+        <span className="text-xs font-bold bg-white px-2 py-1 rounded-full">
           {filteredTasks.length}
         </span>
       </div>
 
-      {/* Task List Area */}
-      <div className="p-3 space-y-3 flex-1 overflow-y-auto min-h-[200px]">
-        {filteredTasks.length > 0 ? (
-          filteredTasks.map((task) => (
-            <TaskCard key={task._id} task={task} />
-          ))
-        ) : (
-          // Empty State
-          <div className="h-full flex flex-col items-center justify-center text-gray-400 text-sm border-2 border-dashed border-gray-200 rounded-lg py-8">
-            <p>No tasks yet</p>
+      <Droppable droppableId={status}>
+        {(provided, snapshot) => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className={`p-3 space-y-3 flex-1 min-h-50 ${
+              snapshot.isDraggingOver ? "bg-black/5" : ""
+            }`}
+          >
+            {filteredTasks.length > 0 ? (
+              filteredTasks.map((task, index) => (
+                <TaskCard key={task._id} task={task} index={index} />
+              ))
+            ) : (
+              <div className="h-full flex items-center justify-center text-gray-400 border-2 border-dashed rounded-lg">
+                No tasks yet
+              </div>
+            )}
+
+            {provided.placeholder}
           </div>
         )}
-      </div>
+      </Droppable>
     </div>
   );
 };
