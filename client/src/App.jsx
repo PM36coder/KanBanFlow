@@ -15,12 +15,19 @@ import { ProtectedRoute } from "./routes/ProtectedRoute"
 import { useEffect } from "react"
 
 
+
+
 function App() {
+
 const dispatch = useDispatch()
 
 useEffect(()=>{
+  
   dispatch(loadUser());
 },[dispatch])
+
+
+
 
   const router = createBrowserRouter([
     {
