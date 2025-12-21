@@ -10,6 +10,7 @@ import { Login } from "./pages/Login"
 import { Register } from "./pages/Register"
 import { Service } from "./pages/Service"
 import { Board } from "./pages/Board"
+
 import { ProtectedRoute } from "./routes/ProtectedRoute"
 import { useEffect } from "react"
 
