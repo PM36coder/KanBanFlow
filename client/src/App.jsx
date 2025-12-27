@@ -13,6 +13,7 @@ import { Board } from "./pages/Board"
 
 import { ProtectedRoute } from "./routes/ProtectedRoute"
 import { useEffect } from "react"
+import { Error } from "./pages/Error"
 
 
 
@@ -32,7 +33,7 @@ useEffect(()=>{
   const router = createBrowserRouter([
     {
       path:'/' , element:<Layout/>,
-      errorElement: <h1>Error Page</h1>,
+      errorElement: <Error/>,
       children : [
         {path : "" , element:<Home/>},
         {path:"about", element:<About/>},
