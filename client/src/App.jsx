@@ -11,7 +11,7 @@ import { Register } from "./pages/Register"
 import { Service } from "./pages/Service"
 import { Board } from "./pages/Board"
 import { ProtectedRoute } from "./routes/ProtectedRoute"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Error } from "./pages/Error"
 import { UpdatePassword } from "./components/UpdatePassword"
 import { ForgotPassword } from "./components/ForgotPassword"
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       // Auth pages
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
-      {path: "forgot-password" , element : <ForgotPassword/>}
+      { path: "forgot-password", element: <ForgotPassword /> }
     ]
   }
 ])
@@ -59,13 +59,32 @@ function App() {
   const dispatch = useDispatch()
   
 
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
+
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-   if (isLoggedIn === "true") {
-       dispatch(loadUser());
+    const initApp = async () => {
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      
+      
+      if (isLoggedIn === "true") {
+          await dispatch(loadUser());
+      }
+      
+      
+      setIsAuthChecked(true);
     }
-   
+
+    initApp();
   }, [dispatch])
+
+ 
+  if (!isAuthChecked) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+         <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <>
