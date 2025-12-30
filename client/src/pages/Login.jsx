@@ -30,7 +30,7 @@ export const Login = () => {
     if (loginUser.fulfilled.match(result)) {
       localStorage.setItem("isLoggedIn", "true");
       navigate("/dashboard"); // login successful
-      // console.log("LOGIN RESULT:", result.payload);
+     
     }
   };
 

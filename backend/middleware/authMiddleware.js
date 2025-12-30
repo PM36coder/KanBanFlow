@@ -10,18 +10,18 @@ export const userMiddleware = async(req,res,next)=>{
         }
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        // console.log(decoded)
+       
         const user = await User.findById(decoded?.id).select('-password');
-        // console.log(user)
+     
         if(!user){
             return res.status(401).json({message:"User not found, Authentication invalid"})
         }
         req.user = user;
-        console.log("Middleware executed", req.user)
+       
       next()
         
     } catch (error) {
-         return res.status(401).json({ msg: "Token invalid" });
+         return res.status(401).json({ message: "Token invalid" });
     }
 }
 

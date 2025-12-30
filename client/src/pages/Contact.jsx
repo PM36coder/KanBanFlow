@@ -33,7 +33,7 @@ export const Contact = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300 py-20 px-6">
       <div className="max-w-6xl mx-auto">
         
-        {/* ================= HEADER ================= */}
+        {/*  HEADER */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
             Get in <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600">Touch</span>
@@ -46,7 +46,7 @@ export const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           
-          {/* ================= LEFT: CONTACT INFO ================= */}
+          {/*  LEFT: CONTACT INFO  */}
           <div className="lg:col-span-1 space-y-6">
             
             {/* Contact Card 1: Email */}

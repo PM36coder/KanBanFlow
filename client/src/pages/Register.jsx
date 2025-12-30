@@ -31,7 +31,7 @@ export const Register = () => {
     const result = await dispatch(registerUser(data));
 
     if (registerUser.fulfilled.match(result)) {
-      // console.log("Registered:", result.payload);
+    
       localStorage.setItem("isLoggedIn", "true");
       navigate('/dashboard');
     }
