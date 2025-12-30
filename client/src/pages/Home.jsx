@@ -1,90 +1,175 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { FaArrowRight, FaCheckCircle, FaRocket } from "react-icons/fa";
+import { FaArrowRight, FaRocket, FaTasks, FaChartLine, FaUsers, FaCheckCircle } from "react-icons/fa";
 
 export const Home = () => {
   const { user } = useSelector((state) => state.auth);
 
   return (
-    <section className="min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        
-        {/* Left: Text Section */}
-        <div className="space-y-6 animate-fade-in-up">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      
+      {/* ================= HERO SECTION ================= */}
+      <section className="relative pt-20 pb-32 overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full z-0 pointer-events-none">
+           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           
-          {/* Badge (Optional Decoration) */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-xs font-semibold tracking-wide uppercase">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 dark:bg-blue-900/20 dark:border-blue-800 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-widest mb-8 animate-fade-in">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-            Productivity Boost
+            v2.0 is Live Now
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
-            Organize work with <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+          {/* Headline */}
+          <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight mb-6">
+            Manage projects with <br className="hidden md:block"/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
               KanbanFlow
             </span>
           </h1>
 
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-lg">
-            A simple and powerful task manager to plan, track, and finish your
-            work efficiently. Stop juggling tasks and start completing them.
+          {/* Sub headline */}
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+            The simplest way to organize your work. Visualize tasks, limit work-in-progress, 
+            and maximize efficiency without the clutter.
           </p>
 
-          {/* Feature List (To make it attractive) */}
-          <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-500 dark:text-gray-400">
-            <div className="flex items-center gap-2">
-              <FaCheckCircle className="text-green-500" /> Free for everyone
-            </div>
-            <div className="flex items-center gap-2">
-              <FaCheckCircle className="text-green-500" /> Real-time updates
-            </div>
-            <div className="flex items-center gap-2">
-              <FaCheckCircle className="text-green-500" /> Drag & Drop
-            </div>
-          </div>
-
-          {/* Conditional Buttons */}
-          <div className="flex flex-wrap gap-4 pt-4">
+          {/* CTA Buttons (User Logic) */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             {user ? (
-              // Agar User Login hai -> Dashboard Button
               <Link
                 to="/dashboard"
-                className="flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-blue-500/30 hover:bg-blue-700 hover:scale-105 transition-all duration-300"
+                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl shadow-blue-500/30 hover:scale-105 transition-all duration-300"
               >
-                <FaRocket /> Create Your Task <FaArrowRight />
+                <FaRocket /> Go to Dashboard
               </Link>
             ) : (
-              // Agar User Login Nahi hai -> Register/Login Buttons
               <>
                 <Link
                   to="/register"
-                  className="bg-blue-600 text-white px-8 py-3.5 rounded-full font-semibold shadow-lg shadow-blue-500/30 hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl shadow-blue-500/30 hover:-translate-y-1 transition-all duration-300"
                 >
-                  Get Started
+                  Start for Free
                 </Link>
                 <Link
                   to="/login"
-                  className="px-8 py-3.5 rounded-full font-semibold border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+                  className="px-8 py-4 rounded-full font-semibold text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300"
                 >
-                  Login
+                  Log In
                 </Link>
               </>
             )}
           </div>
-        </div>
 
-        {/* Right: Illustration */}
-        <div className="hidden md:block relative">
-          {/* Decorative Blob Background */}
-          <div className="absolute top-0 right-0 -z-10 w-96 h-96 bg-blue-200/50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-70 animate-pulse"></div>
-          
-          <img
-            src="https://imgs.search.brave.com/4vVwFNNowpHlGazL3pDJjuNmoqffz736OGBx-bZNqFA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTIw/NjIzNDMyNS92ZWN0/b3Ivc2NydW0tbWFu/YWdlbWVudC1ib2Fy/ZC13b3JrZmxvdy1w/cm9qZWN0LW9uLXRh/YmxldC1wYy12ZWN0/b3ItaWxsdXN0cmF0/aW9uLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz16X0pJWHY3/YS16a21SYjRGWVhk/YnZCSFctdGVLLXpJ/TVY1Y3g3QkNxRHI4/PQ"
-            alt="Kanban Illustration"
-            className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-2xl transform hover:scale-105 transition-transform duration-500"
-          />
+          {/* Hero Image / Dashboard Preview */}
+          <div className="relative mx-auto max-w-5xl rounded-2xl border border-gray-200 dark:border-gray-700 shadow-2xl bg-gray-900 overflow-hidden">
+             {/* Fake Browser Header */}
+             <div className="h-8 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center px-4 gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div className="w-3 h-3 rounded-full bg-green-400"></div>
+             </div>
+             {/* Image */}
+             <img 
+               src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=2839&auto=format&fit=crop" 
+               alt="Dashboard Preview" 
+               className="w-full h-auto opacity-90 hover:opacity-100 transition duration-500"
+             />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/*  TRUST SECTION */}
+      <section className="py-10 border-y border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="space-y-1">
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white">10k+</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Active Users</p>
+            </div>
+            <div className="space-y-1">
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white">500k+</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Tasks Completed</p>
+            </div>
+            <div className="space-y-1">
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white">99.9%</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Uptime</p>
+            </div>
+            <div className="space-y-1">
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white">4.9/5</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">User Rating</p>
+            </div>
+        </div>
+      </section>
+
+      {/* FEATURES SECTION  */}
+      <section className="py-24 bg-white dark:bg-gray-900">
+          <div className="max-w-7xl mx-auto px-6">
+              <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Everything you need to ship faster</h2>
+                  <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                      KanbanFlow provides all the essential tools to help your team collaborate and hit deadlines without the stress.
+                  </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                  {/* Feature 1 */}
+                  <div className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg flex items-center justify-center text-xl mb-6">
+                          <FaTasks />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Drag & Drop Boards</h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                          Intuitively organize tasks with our smooth Kanban boards. Customize columns to match your workflow perfectly.
+                      </p>
+                  </div>
+
+                  {/* Feature 2 */}
+                  <div className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-lg flex items-center justify-center text-xl mb-6">
+                          <FaUsers />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Team Collaboration</h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                          Invite team members, assign tasks, and comment in real-time. Keep everyone on the same page, effortlessly.
+                      </p>
+                  </div>
+
+                  {/* Feature 3 */}
+                  <div className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-700">
+                      <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-lg flex items-center justify-center text-xl mb-6">
+                          <FaChartLine />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Productivity Analytics</h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                          Track progress with built-in reports. See what's done, what's pending, and optimize your team's velocity.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      {/*  BOTTOM CTA  */}
+      <section className="py-20 bg-blue-600 dark:bg-blue-700">
+          <div className="max-w-4xl mx-auto px-6 text-center text-white">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to boost your productivity?</h2>
+              <p className="text-blue-100 text-lg mb-8">
+                  Join thousands of teams using KanbanFlow to do their best work.
+              </p>
+              {!user && (
+                  <Link 
+                    to="/register" 
+                    className="inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-4 rounded-full font-bold shadow-lg hover:bg-gray-100 transition hover:scale-105"
+                  >
+                    Get Started for Free <FaArrowRight />
+                  </Link>
+              )}
+          </div>
+      </section>
+
+    </div>
   );
 };
