@@ -16,6 +16,7 @@ export const Header = () => {
 
 
   const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
     dispatch(logoutUser());
     setOpen(false);
     setDropdownOpen(false); 
@@ -51,6 +52,7 @@ export const Header = () => {
           <NavLink to="/" end className={navLinkStyles}>Home</NavLink>
           <NavLink to="/about" className={navLinkStyles}>About</NavLink>
           <NavLink to="/projects" className={navLinkStyles}>Projects</NavLink>
+            <NavLink to="/contact" className={navLinkStyles}>Contact</NavLink>
 
           {user ? (
             <>
@@ -144,7 +146,7 @@ export const Header = () => {
              
               <div className="border-t border-gray-300 dark:border-gray-600 pt-2 mt-2">
                 <p className="text-xs text-gray-500 mb-2">Account ({user.name})</p>
-                <Link onClick={() => setOpen(false)} to="/update-password" class="block py-2 flex items-center gap-2">
+                <Link onClick={() => setOpen(false)} to="/update-password" className=" py-2 flex items-center gap-2">
                    <FaLock /> Update Password
                 </Link>
                 <button
@@ -156,7 +158,7 @@ export const Header = () => {
               </div>
             </>
           ) : (
-            <NavLink to="/login" className="block bg-blue-600 text-white px-4 py-2 rounded text-center">
+            <NavLink to="/login" onClick={() => setOpen(false)} className="block bg-blue-600 text-white px-4 py-2 rounded text-center">
               Login
             </NavLink>
           )}
