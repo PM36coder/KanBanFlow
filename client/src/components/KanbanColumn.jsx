@@ -36,7 +36,7 @@ export const KanbanColumn = ({ title, status, tasks }) => {
     <div 
       className={`
         flex flex-col h-full rounded-xl border border-gray-200 dark:border-gray-700
-        min-w-[280px] md:min-w-[320px] transition-colors duration-300
+        min-w-70 md:min-w-[320px] transition-colors duration-300
         ${style.bg} border-t-4 ${style.borderTop}
       `}
     >
@@ -60,7 +60,7 @@ export const KanbanColumn = ({ title, status, tasks }) => {
             ref={provided.innerRef}
             {...provided.droppableProps}
             className={`
-              flex-1 p-3 flex flex-col gap-3 min-h-[150px] transition-colors duration-200 rounded-b-xl
+              flex-1 p-3 flex flex-col gap-3 min-h-37.5 transition-colors duration-200 rounded-b-xl
               ${snapshot.isDraggingOver ? "bg-gray-100/80 dark:bg-gray-700/50 ring-2 ring-inset ring-blue-400/30" : ""}
             `}
           >

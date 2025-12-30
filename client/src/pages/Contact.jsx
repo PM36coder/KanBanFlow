@@ -36,7 +36,7 @@ export const Contact = () => {
         {/* ================= HEADER ================= */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
-            Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Touch</span>
+            Get in <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600">Touch</span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Have a project in mind or just want to say hi? We'd love to hear from you.
@@ -51,7 +51,7 @@ export const Contact = () => {
             
             {/* Contact Card 1: Email */}
             <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-start gap-4 hover:-translate-y-1 transition duration-300">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg flex items-center justify-center text-xl flex-shrink-0">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg flex items-center justify-center text-xl shrink-0">
                 <FaEnvelope />
               </div>
               <div>
@@ -63,7 +63,7 @@ export const Contact = () => {
 
             {/* Contact Card 2: Location */}
             <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-start gap-4 hover:-translate-y-1 transition duration-300">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-lg flex items-center justify-center text-xl flex-shrink-0">
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-lg flex items-center justify-center text-xl shrink-0">
                 <FaMapMarkerAlt />
               </div>
               <div>
@@ -76,7 +76,7 @@ export const Contact = () => {
 
             {/* Contact Card 3: Phone */}
             <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-start gap-4 hover:-translate-y-1 transition duration-300">
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-lg flex items-center justify-center text-xl flex-shrink-0">
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-lg flex items-center justify-center text-xl shrink-0">
                 <FaPhoneAlt />
               </div>
               <div>
@@ -146,7 +146,7 @@ export const Contact = () => {
               <button 
                 type="submit" 
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {loading ? (
                     <>Sending...</>

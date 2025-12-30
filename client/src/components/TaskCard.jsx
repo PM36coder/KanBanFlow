@@ -149,7 +149,7 @@ export const TaskCard = ({ task, index }) => {
             {/* Content Area */}
             <div 
                 onDoubleClick={() => setIsEditing(true)} 
-                className="cursor-pointer min-h-[60px]"
+                className="cursor-pointer min-h-15"
             >
               {isEditing ? (
                 <div className="animate-fade-in space-y-3">
@@ -198,7 +198,7 @@ export const TaskCard = ({ task, index }) => {
                 </div>
                 
                 {/* Mock Avatar  */}
-                <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 text-white text-[10px] flex items-center justify-center font-bold shadow-sm">
+                <div className="w-6 h-6 rounded-full bg-linear-to-tr from-purple-500 to-blue-500 text-white text-[10px] flex items-center justify-center font-bold shadow-sm">
                     Me
                 </div>
                 </div>

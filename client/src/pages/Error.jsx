@@ -43,7 +43,7 @@ export const Error = () => {
         {(error.statusText || error.message) && (
           <div className="bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-left p-4 rounded-xl text-sm mb-8 font-mono overflow-auto shadow-inner mx-auto max-w-sm">
             <p className="text-red-500 font-bold mb-1">// Error Details:</p>
-            <p className="text-gray-700 dark:text-gray-300 break-words">
+            <p className="text-gray-700 dark:text-gray-300 wrap-break-word">
               {error.statusText || error.message}
             </p>
           </div>
@@ -61,7 +61,7 @@ export const Error = () => {
           <Link
             to="/"
             replace
-            className="flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl transition font-semibold shadow-lg shadow-blue-500/30 hover:-translate-y-0.5"
+            className="flex items-center justify-center gap-2 px-8 py-3.5 bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl transition font-semibold shadow-lg shadow-blue-500/30 hover:-translate-y-0.5"
           >
             <FaHome /> Back to Home
           </Link>

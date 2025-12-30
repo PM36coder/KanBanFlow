@@ -6,10 +6,10 @@ export const About = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       
-      {/* ================= HERO SECTION ================= */}
+      {/* HERO SECTION */}
       <div className="relative pt-20 pb-16 text-center px-6">
         <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6 animate-fade-in-up">
-          About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">KanbanFlow</span>
+          About <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600">KanbanFlow</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-100">
           KanbanFlow isn't just a task manager; it's a productivity powerhouse designed 

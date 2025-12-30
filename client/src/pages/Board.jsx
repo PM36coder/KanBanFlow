@@ -49,13 +49,13 @@ export const Board = () => {
         
         {/*  HEADER TOOLBAR  */}
         <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30 shadow-sm">
-          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-4">
+          <div className="max-w-400 mx-auto px-4 sm:px-6 py-4">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               
               {/* Left: Title & Meta */}
               <div>
                 <h1 className="text-2xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-                  Project <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Board</span>
+                  Project <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">Board</span>
                 </h1>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -93,7 +93,7 @@ export const Board = () => {
                 {/* Create Button */}
                 <button
                   onClick={() => setOpen(true)}
-                  className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 font-medium whitespace-nowrap"
+                  className="flex items-center gap-2 bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 font-medium whitespace-nowrap"
                 >
                   <FaPlus className="text-sm" /> 
                   <span className="hidden sm:inline">New Task</span>
@@ -106,13 +106,13 @@ export const Board = () => {
 
         {/* KANBAN COLUMNS */}
         <div className="flex-1 overflow-x-auto overflow-y-hidden bg-gray-50 dark:bg-gray-900 p-4 md:p-6">
-          <div className="max-w-[1600px] mx-auto h-full">
+          <div className="max-w-400 mx-auto h-full">
             
             {tasks.length === 0 ? (
               <EmptyBoard onCreate={() => setOpen(true)} />
             ) : (
               // Grid Layout for Desktop, Horizontal Scroll for Mobile
-              <div className="flex flex-col md:grid md:grid-cols-3 gap-6 h-full min-w-[300px]">
+              <div className="flex flex-col md:grid md:grid-cols-3 gap-6 h-full min-w-75">
                 <KanbanColumn title="To Do" status="todo" tasks={tasks} />
                 <KanbanColumn title="In Progress" status="in-progress" tasks={tasks} />
                 <KanbanColumn title="Completed" status="done" tasks={tasks} />
