@@ -27,7 +27,7 @@ export const Home = () => {
           {/* Headline */}
           <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight mb-6">
             Manage projects with <br className="hidden md:block"/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600">
               KanbanFlow
             </span>
           </h1>

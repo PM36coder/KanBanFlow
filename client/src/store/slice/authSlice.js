@@ -164,7 +164,7 @@ const authSlice = createSlice({
       })
       .addCase(loadUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user; // backend se { user } aa raha
+        state.user = action.payload.user; 
       })
       .addCase(loadUser.rejected, (state) => {
         state.loading = false;
