@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { FaArrowLeft, FaEnvelope, FaLock, FaKey, FaCheckCircle } from "react-icons/fa";
-import { sendOtp, resetPassword, resetError, resetMessage } from "../store/slice/authSlice"
+import { sendOtp, resetPassword, resetError, resetMessage } from "../store/slice/authSlice";
 
 export const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -13,13 +13,13 @@ export const ForgotPassword = () => {
   const { loading, error, message } = useSelector((state) => state.auth);
 
   // Local UI State
-  const [step, setStep] = useState(1); // 1: Email, 2: OTP, 3: Password
+  const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // Handle Toasts & Errors
+ 
   useEffect(() => {
     if (error) {
       toast.error(error);
@@ -28,45 +28,51 @@ export const ForgotPassword = () => {
     if (message) {
       toast.success(message);
       dispatch(resetMessage());
-
-      // Success Logic based on step
-      if (step === 1) setStep(2); // OTP sent -> Go to OTP step
-      if (step === 3) {
-        // Password Reset done -> Go to Login
-        setTimeout(() => navigate("/login"), 2000);
-      }
+     
     }
-  }, [error, message, step, dispatch, navigate]);
+  }, [error, message, dispatch]);
 
 
-  // --- Handlers ---
 
-  const handleSendOtp = (e) => {
+
+  const handleSendOtp = async (e) => {
     e.preventDefault();
     if (!email) return toast.error("Please enter email");
-    dispatch(sendOtp(email));
+
+    
+    const result = await dispatch(sendOtp(email));
+
+    // if fulfilled, move to next step
+    if (sendOtp.fulfilled.match(result)) {
+      setStep(2); // ✅ Valid place for State Update
+    }
   };
 
   const handleOtpSubmit = (e) => {
     e.preventDefault();
     if (otp.length !== 6) return toast.error("Enter valid 6-digit OTP");
-    setStep(3); // Frontend check only, move to password step
+    setStep(3);
   };
 
-  const handleResetPassword = (e) => {
+  const handleResetPassword = async (e) => {
     e.preventDefault();
     if (!newPassword || !confirmPassword) return toast.error("All fields required");
     if (newPassword !== confirmPassword) return toast.error("Passwords do not match");
     
-    // Dispatch Redux Action
-    dispatch(resetPassword({ email, otp, newPassword }));
+    // API Call
+    const result = await dispatch(resetPassword({ email, otp, newPassword }));
+
+    // Success par Redirect
+    if (resetPassword.fulfilled.match(result)) {
+      setTimeout(() => navigate("/login"), 2000);
+    }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">
       <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
         
-        {/* Icons & Header */}
+        {/* Header Section */}
         <div className="text-center mb-8">
           <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 text-2xl">
             {step === 1 && <FaEnvelope />}
@@ -85,7 +91,7 @@ export const ForgotPassword = () => {
           </p>
         </div>
 
-        {/* --- STEP 1: EMAIL --- */}
+        {/* STEP 1: EMAIL */}
         {step === 1 && (
           <form onSubmit={handleSendOtp} className="space-y-6">
             <div className="relative">
@@ -114,7 +120,7 @@ export const ForgotPassword = () => {
           </form>
         )}
 
-        {/* --- STEP 2: OTP --- */}
+        {/*  STEP 2: OTP */}
         {step === 2 && (
           <form onSubmit={handleOtpSubmit} className="space-y-6">
             <input
@@ -139,7 +145,7 @@ export const ForgotPassword = () => {
           </form>
         )}
 
-        {/* --- STEP 3: NEW PASSWORD --- */}
+        {/*  STEP 3: NEW PASSWORD  */}
         {step === 3 && (
           <form onSubmit={handleResetPassword} className="space-y-5">
             <div className="relative">
@@ -178,4 +184,3 @@ export const ForgotPassword = () => {
     </div>
   );
 };
-
