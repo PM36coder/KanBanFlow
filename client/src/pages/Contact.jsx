@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaPaperPlane, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaPaperPlane, FaGithub, FaLinkedin, } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 
 export const Contact = () => {
@@ -88,9 +88,9 @@ export const Contact = () => {
 
             {/* Social Links */}
             <div className="pt-6 flex gap-4 justify-center lg:justify-start">
-                <SocialBtn icon={<FaGithub />} link="#" />
-                <SocialBtn icon={<FaLinkedin />} link="#" />
-                <SocialBtn icon={<FaTwitter />} link="#" />
+                <SocialBtn icon={<FaGithub />} link="https://github.com/PM36coder" />
+                <SocialBtn icon={<FaLinkedin />} link="www.linkedin.com/in/pravesh-yadav-25bb5233a" />
+               
             </div>
 
           </div>

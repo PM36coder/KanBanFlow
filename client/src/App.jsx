@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Snowfall from "react-snowfall";
 import { useDispatch } from "react-redux"
 import { loadUser } from "./store/slice/authSlice"
 import { Layout } from "./components/Layout"
@@ -88,6 +89,21 @@ function App() {
 
   return (
     <>
+   <Snowfall
+        // optional props
+        color="#fff"
+        snowflakeCount={150}
+        style={{
+          position: "fixed",
+          width: "100vw",
+          height: "100vh",
+          pointerEvents: "none",
+          top: 0,
+          left: 0,
+          zIndex: 50,
+        }}
+      />
+
       <RouterProvider router={router} />
     </>
   )
