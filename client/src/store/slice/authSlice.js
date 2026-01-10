@@ -179,6 +179,7 @@ const authSlice = createSlice({
       .addCase(updateUserPassword.fulfilled,(state,action)=>{
         state.loading = false;
         state.message = action.payload.message;
+        state.user = null
         state.error = null
       })
       .addCase(updateUserPassword.rejected,(state,action)=>{

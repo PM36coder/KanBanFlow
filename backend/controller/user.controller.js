@@ -99,10 +99,10 @@ const userLogin = async (req, res) => {
 
 const userLogout = (req, res) => {
   try {
-    // Token ko empty string se replace kar do aur expiry  (0) set kar do
+    
     res.cookie("token", "", {
       httpOnly: true,
-      maxAge: new Date(0), // Ya maxAge: 0
+      maxAge: new Date(0), 
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
     });
@@ -156,7 +156,7 @@ const updatePassword = async (req, res) => {
     user.password = hashNewPassword;
     await user.save();
 
-    res.status(200).json({ message: "Password updated successfully" });
+    res.clearCookie("token").status(200).json({ message: "Password updated successfully" });
   } catch (error) {
     console.log("Error in updatePassword:", error);
     res.status(500).json({ message: "Server Error" });

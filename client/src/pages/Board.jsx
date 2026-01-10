@@ -12,7 +12,8 @@ export const Board = () => {
   const { tasks, loading } = useSelector((state) => state.tasks);
   const [open, setOpen] = useState(false);
 
-  
+  const activeTasksCount = tasks.filter(task => task.status !== "done").length;
+
   useEffect(() => {
     dispatch(fetchTasks());
   }, [dispatch]);
@@ -59,7 +60,7 @@ export const Board = () => {
                 </h1>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                  Workspace Active • {tasks.length} Tasks
+                  Workspace Active • {activeTasksCount } Tasks
                 </p>
               </div>
 
