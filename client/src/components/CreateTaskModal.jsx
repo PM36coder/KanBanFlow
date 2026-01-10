@@ -5,7 +5,7 @@ import { FaTimes, FaLayerGroup } from "react-icons/fa";
 
 export const CreateTaskModal = ({ open, onClose }) => {
   const dispatch = useDispatch();
-  const { loading , error} = useSelector((state) => state.tasks);
+  const { loading } = useSelector((state) => state.tasks);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
