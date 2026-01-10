@@ -39,15 +39,7 @@ export const Error = () => {
             : "An unexpected error occurred. Our team has been notified and is working on the fix."}
         </p>
 
-        {/* Technical Error Details (Styled as Code Block) */}
-        {(error.statusText || error.message) && (
-          <div className="bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-left p-4 rounded-xl text-sm mb-8 font-mono overflow-auto shadow-inner mx-auto max-w-sm">
-            <p className="text-red-500 font-bold mb-1">// Error Details:</p>
-            <p className="text-gray-700 dark:text-gray-300 wrap-break-word">
-              {error.statusText || error.message}
-            </p>
-          </div>
-        )}
+        
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

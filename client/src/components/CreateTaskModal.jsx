@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createTask } from "../store/slice/taskSlice"; 
-import { FaTimes, FaLayerGroup } from "react-icons/fa"; // Icons added
+import { FaTimes, FaLayerGroup } from "react-icons/fa"; 
 
 export const CreateTaskModal = ({ open, onClose }) => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export const CreateTaskModal = ({ open, onClose }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  // --- LOGIC (UNCHANGED) ---
+
   useEffect(() => {
     const onEsc = (e) => e.key === "Escape" && onClose();
     if (open) window.addEventListener("keydown", onEsc);

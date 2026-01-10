@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors(
 
     {
-        origin : "http://localhost:5173", 
+        origin : process.env.FRONTEND_URL, 
         credentials: true,}
 ));
 app.use(express.json());
@@ -21,7 +21,9 @@ app.use(cookieParser());
 // routes
 app.use('/v1/auth', userAuthRouter)
 app.use("/v1/tasks", taskRoutes);
-
+app.get("/healthz", (req, res) => {
+  res.status(200).send("OK");
+});
 
 
 connectDB().then(()=>{
