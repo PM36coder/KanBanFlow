@@ -60,7 +60,7 @@ export const KanbanColumn = ({ title, status, tasks }) => {
             ref={provided.innerRef}
             {...provided.droppableProps}
             className={`
-              flex-1 p-3 flex flex-col gap-3 min-h-37.5 transition-colors duration-200 rounded-b-xl
+              flex-1 p-3 flex flex-col gap-3 space-y-3 overflow-y-auto max-h-80 md:max-h-full pr-2 custom-scrollbar min-h-37.5 transition-colors duration-200 rounded-b-xl
               ${snapshot.isDraggingOver ? "bg-gray-100/80 dark:bg-gray-700/50 ring-2 ring-inset ring-blue-400/30" : ""}
             `}
           >
@@ -69,7 +69,7 @@ export const KanbanColumn = ({ title, status, tasks }) => {
                 <TaskCard key={task._id} task={task} index={index} />
               ))
             ) : (
-              // ✨ Styled Empty State
+              //  Styled Empty State
               <div className="h-32 flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl m-1">
                 <span className="text-sm font-medium">No tasks yet</span>
                 <span className="text-xs mt-1 opacity-70">Drop items here</span>

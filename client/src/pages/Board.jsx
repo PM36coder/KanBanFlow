@@ -113,7 +113,7 @@ export const Board = () => {
               <EmptyBoard onCreate={() => setOpen(true)} />
             ) : (
               // Grid Layout for Desktop, Horizontal Scroll for Mobile
-              <div className="flex flex-col md:grid md:grid-cols-3 gap-6 h-full min-w-75">
+              <div className="flex flex-col  md:grid md:grid-cols-3 gap-6 h-full min-w-75">
                 <KanbanColumn title="To Do" status="todo" tasks={tasks} />
                 <KanbanColumn title="In Progress" status="in-progress" tasks={tasks} />
                 <KanbanColumn title="Completed" status="done" tasks={tasks} />

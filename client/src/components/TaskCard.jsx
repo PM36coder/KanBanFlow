@@ -86,7 +86,7 @@ export const TaskCard = ({ task, index }) => {
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             className={`
-              group relative bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 
+              group relative bg-white w-full h-full dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 
               shadow-sm hover:shadow-md transition-all duration-200 mb-3
               ${snapshot.isDragging ? "ring-2 ring-blue-500 rotate-2 shadow-2xl z-50" : ""}
               ${isEditing ? "ring-2 ring-blue-500/50" : "hover:-translate-y-1"}

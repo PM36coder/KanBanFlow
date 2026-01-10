@@ -109,6 +109,7 @@ const userLogout = (req, res) => {
 
     res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: "Error logging out" });
   }
 };
@@ -120,6 +121,7 @@ const userGetMe = async (req, res) => {
     const user = await User.findById(req.user._id);
     res.status(200).json({ user });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: "Server Error" });
   }
 };

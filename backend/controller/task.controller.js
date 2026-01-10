@@ -66,6 +66,7 @@ if(status) updateData.status = status;
 
     res.status(200).json(task);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: "Server error" });
   }
 };
@@ -86,6 +87,7 @@ const deleteTask = async(req,res)=>{
 
         res.status(200).json({message : "Task deleted"})
     } catch (error) {
+        console.log(error)
         res.status(500).json({ msg: "Server error" });
     }
 }

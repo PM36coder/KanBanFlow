@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import Snowfall from "react-snowfall";
+
 import { useDispatch } from "react-redux"
 import { loadUser } from "./store/slice/authSlice"
 import { Layout } from "./components/Layout"
