@@ -86,7 +86,7 @@ export const About = () => {
         </h2>
         <Link 
           to="/register"
-          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full transition shadow-lg hover:shadow-blue-500/30"
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full transition shadow-lg hover:shadow-blue-500/30  hover:-translate-y-2 duration-300"
         >
           Get Started for Free
         </Link>

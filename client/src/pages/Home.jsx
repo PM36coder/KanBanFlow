@@ -84,21 +84,21 @@ export const Home = () => {
       </section>
 
       {/*  TRUST SECTION */}
-      <section className="py-10 border-y border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+      <section className="py-10 border-y border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 ">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="space-y-1">
+            <div className="space-y-1 hover:-translate-y-2 transition-transform duration-300">
                 <h3 className="text-3xl font-bold text-gray-900 dark:text-white">10k+</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Active Users</p>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 hover:-translate-y-2 transition-transform duration-300">
                 <h3 className="text-3xl font-bold text-gray-900 dark:text-white">500k+</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Tasks Completed</p>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 hover:-translate-y-2 transition-transform duration-300">
                 <h3 className="text-3xl font-bold text-gray-900 dark:text-white">99.9%</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Uptime</p>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 hover:-translate-y-2 transition-transform duration-300">
                 <h3 className="text-3xl font-bold text-gray-900 dark:text-white">4.9/5</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">User Rating</p>
             </div>
@@ -117,7 +117,7 @@ export const Home = () => {
 
               <div className="grid md:grid-cols-3 gap-8">
                   {/* Feature 1 */}
-                  <div className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-700">
+                  <div className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-700 hover:-translate-y-2">
                       <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg flex items-center justify-center text-xl mb-6">
                           <FaTasks />
                       </div>
@@ -128,7 +128,7 @@ export const Home = () => {
                   </div>
 
                   {/* Feature 2 */}
-                  <div className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-700">
+                  <div className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-700 hover:-translate-y-2">
                       <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-lg flex items-center justify-center text-xl mb-6">
                           <FaUsers />
                       </div>
@@ -139,7 +139,7 @@ export const Home = () => {
                   </div>
 
                   {/* Feature 3 */}
-                  <div className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-700">
+                  <div className="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition duration-300 border border-gray-100 dark:border-gray-700 hover:-translate-y-2">
                       <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-lg flex items-center justify-center text-xl mb-6">
                           <FaChartLine />
                       </div>
